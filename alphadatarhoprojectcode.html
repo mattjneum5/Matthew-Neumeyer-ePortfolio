@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> Alpha Data Rho Project Code</title>
+    <link rel = "stylesheet" href = "/alphadatarhostyle.css"/>
+
+  </head>
+  <body>
+    <div>
+        <nav>
+          <ul>
+            <li> <a href="index.html"> Home</a></li> 
+          </ul>
+        </nav>   
+      </div>
+      <h1>
+          Alpha Data Rho Final Project Code 
+      </h1>
+      <pre>
+          <code>
+            ######Matthew Neumeyer Blood Pressure Monitor Source Code
+
+            ####Could not figure out how to incorporate files into the code or how to get the code to create a file. Values need to be input manually into code
+            #####However, files could be added and created if the code were edited
+            
+            
+            ####Blood Pressure Monitor Class
+            class BloodPressureMonitor():
+            
+              ####defines inputs. When inputting objects, need systolic value, then diastolic value, then BPM device ID, then first name, then lastname
+                def __init__(self, systolic, diastolic, BPMdeviceID, firstname, lastname):
+            
+                    self.systolic = int(systolic)
+                    self.diastolic = int(diastolic)
+                    self.BPMdeviceID = int(BPMdeviceID)
+                    self.firstname = firstname
+                    self.lastname = lastname
+            
+                ####function that measures blood pressure
+                def measureBP(self):
+                    if self.systolic < 120 and self.diastolic < 80:
+                        print(self.systolic)
+                        print(self.diastolic)
+                        print ("Normal BP")
+                    elif self.systolic in range(120,129) and self.diastolic < 80:
+                        print(self.systolic)
+                        print(self.diastolic)
+                        print("Elevated BP")
+                    elif self.systolic in range(130,139) or self.diastolic in range(80,89):
+                        print(self.systolic)
+                        print(self.diastolic)
+                        print("High BP")
+                    elif self.systolic >= 140 or self.diastolic >= 90:
+                        print(self.systolic)
+                        print(self.diastolic)
+                        print("Very High BP")
+            
+                ####function that displays blood pressure
+                def displayBP(self):
+                    self.measureBP()
+            
+                ##### function that displays device information
+                def displaydeviceinfo(self):
+                    print(self.BPMdeviceID)
+                    print("assigned to:", self.firstname, self.lastname)
+            
+            
+            ####to test code, need to create variables and input different objects into the code. Below are a few test variables I created. 
+            
+            ####BPtest1 = BloodPressureMonitor(119, 75, 4949494949, "James", "Kraig")
+            #####BPtest1.displayBP()
+            #####BPtest1.displaydeviceinfo
+            
+            ######BPtest2 = BloodPressureMonitor(120, 79, 4949494994, "Joe", "Doe")
+            ######BPtest2.displayBP()
+            ######BPtest2.displaydeviceinfo
+            
+            ########BPtest3 = BloodPressureMonitor(135, 85, 49494949949, "Jack", "Smith")
+            ########BPtest3.displayBP()
+            ########BPtest3.displaydeviceinfo
+            
+            ###########BPtest4 = BloodPressureMonitor(147, 94, 49494949944, "Jane", "Hansen")
+            #########BPtest4.displayBP()
+            #########BPtest4.displaydeviceinfo
+          </code>
+      </pre>
+      <pre>
+          <code>
+            ######Matthew Neumeyer Blood Pressure Monitor Code Test
+
+            ####Could not figure out how to incorporate files into the code or how to get the code to create a file. Values need to be input manually into code
+            #####However, files could be added and created if the code were edited
+            
+            
+            ####Blood Pressure Monitor Class
+            class BloodPressureMonitor():
+            
+              ####defines inputs. When inputting objects, need systolic value, then diastolic value, then BPM device ID, then first name, then lastname
+                def __init__(self, systolic, diastolic, BPMdeviceID, firstname, lastname):
+            
+                  #####beginning of doctest section
+            
+                    """
+                    >>> m1 = BloodPressureMonitor(115, 75, 37328328, "John", "Doe")
+                    >>> m1.systolic
+                    115
+                    >>> m1.diastolic
+                    75
+                    >>> m1.displayBP()
+                    115
+                    75
+                    Normal BP
+                    >>> m1.displaydeviceinfo()
+                    37328328
+                    assigned to: John Doe
+                    >>> m2 = BloodPressureMonitor(121, 77, 85858548, "Jack", "Doe")
+                    >>> m2.systolic
+                    121
+                    >>> m2.diastolic
+                    77
+                    >>> m2.displayBP()
+                    121
+                    77
+                    Elevated BP
+                    >>> m2.displaydeviceinfo()
+                    85858548
+                    assigned to: Jack Doe
+                    >>> m3 = BloodPressureMonitor(135, 85, 948948948, "Jane", "Doe")
+                    >>> m3.systolic
+                    135
+                    >>> m3.diastolic
+                    85
+                    >>> m3.displayBP()
+                    135
+                    85
+                    High BP
+                    >>> m3.displaydeviceinfo()
+                    948948948
+                    assigned to: Jane Doe
+                    >>> m4 = BloodPressureMonitor(149, 96, 848328932, "James", "Doe")
+                    >>> m4.systolic
+                    149
+                    >>> m4.diastolic
+                    96
+                    >>> m4.displayBP()
+                    149
+                    96
+                    Very High BP
+                    >>> m4.displaydeviceinfo()
+                    848328932
+                    assigned to: James Doe
+            
+                    """
+            
+                    ####end of doctest section
+                    self.systolic = int(systolic)
+                    self.diastolic = int(diastolic)
+                    self.BPMdeviceID = int(BPMdeviceID)
+                    self.firstname = firstname
+                    self.lastname = lastname
+            
+                ####function that measures blood pressure
+                def measureBP(self):
+                    if self.systolic < 120 and self.diastolic < 80:
+                        print(self.systolic)
+                        print(self.diastolic)
+                        print ("Normal BP")
+                    elif self.systolic in range(120,129) and self.diastolic < 80:
+                        print(self.systolic)
+                        print(self.diastolic)
+                        print("Elevated BP")
+                    elif self.systolic in range(130,139) or self.diastolic in range(80,89):
+                        print(self.systolic)
+                        print(self.diastolic)
+                        print("High BP")
+                    elif self.systolic >= 140 or self.diastolic >= 90:
+                        print(self.systolic)
+                        print(self.diastolic)
+                        print("Very High BP")
+            
+                ####function that displays blood pressure
+                def displayBP(self):
+                    self.measureBP()
+            
+                ##### function that displays device information
+                def displaydeviceinfo(self):
+                    print(self.BPMdeviceID)
+                    print("assigned to:", self.firstname, self.lastname)
+            
+            ####imports doctest
+            if __name__ == '__main__':
+                import doctest
+                doctest.testmod(verbose= True)
+            
+            ####to test code, need to create variables and input different objects into the code. Below are a few test variables I created. 
+            
+            ####BPtest1 = BloodPressureMonitor(119, 75, 4949494949, "James", "Kraig")
+            #####BPtest1.displayBP()
+            #####BPtest1.displaydeviceinfo
+            
+            ######BPtest2 = BloodPressureMonitor(120, 79, 4949494994, "Joe", "Doe")
+            ######BPtest2.displayBP()
+            ######BPtest2.displaydeviceinfo
+            
+            ########BPtest3 = BloodPressureMonitor(135, 85, 49494949949, "Jack", "Smith")
+            ########BPtest3.displayBP()
+            ########BPtest3.displaydeviceinfo
+            
+            ###########BPtest4 = BloodPressureMonitor(147, 94, 49494949944, "Jane", "Hansen")
+            #########BPtest4.displayBP()
+            #########BPtest4.displaydeviceinfo
+          </code>
+      </pre>
+      <pre>
+          <code>
+            ####Sonnelyn Valdez Glucose Monitor Source Code
+
+            import pandas as pd
+            import numpy as np
+            import csv
+            
+            
+            inputfile = open('sample_glucose.csv', 'r')
+            
+            class GlucoseMonitor(object):
+                def __init__(self, bloodGlucose):
+                    self.bloodGlucose = int(bloodGlucose)
+                    self.measureGlucose = str
+                    self.glucoseNormal = bool
+                    
+                #I could not identify how to get any of this to print,
+                #no error showed up for this section of the code.
+                #I then altered the code to show if the patient's 
+                #glucose level was within normal limits 
+                
+                def measureGlucose(self):
+                    if self.bloodglucose in range(80,99):
+                        print(self.bloodGlucose)
+                        print("Are you fasting?")
+                        print("Fasting Normal Blood Glucose")
+                    elif self.bloodGlucose in range(101,125):
+                        print(self.bloodGlucose)
+                        print("Are you fasting?")
+                        print("Fasting Impaired Glucose")
+                    elif self.bloodGlucose > 126:
+                        print(self.bloodGlucose)
+                        print("Are you fasting?")
+                        print("Fasting Diabetic")
+                    elif self.bloodGlucose in range(170,200):
+                        print(self.bloodGlucose)
+                        print("Did you just finish eating?")
+                        print("After eating Normal blood glucose")
+                    elif self.bloodGlucose in range(190,230):
+                        print(self.bloodGlucose)
+                        print("Did you just finish eating?")
+                        print("After eating Impaired blood glucose")
+                    elif self.bloodglucose in range(220,300):
+                        print(self.bloodglucose)
+                        print("Did you just finish eating?")
+                        print("After eating Diabetic blood glucose")
+                    elif self.bloodGlucose in range(120,140):
+                        print(self.bloodGlucose)
+                        print("Did you finish eating in the last 3 hours?")
+                        print("Normal blood glucose")
+                    elif self.bloodGlucose in range(140,160):
+                        print(self.bloodGlucose)
+                        print("Did you finish eating in the last 3 hours?")
+                        print("Impaired blood glucose")
+                    elif self.bloodGlucose > 200:
+                        print(self.Gloodglucose)
+                        print("Did you finish eating in the last 3 hours?")
+                        print("Diabetic blood glucose")
+                    
+                def getGlucose(self):
+                    return(self.bloodGlucose)
+                
+                def getGlucoseNormal(self):
+                    return(self.glucoseNormal)
+                
+                def checkNormal(self):
+                    if self.bloodGlucose >= 140:
+                        self.glucoseNormal = 'false'
+                    else:
+                        self.glucoseNormal = 'true'
+                        
+                    print ("Blood Glucose:", self.bloodGlucose, '\n', "Glucose Normal:", self.glucoseNormal)
+                        
+                def writeFile(self):
+                    with open('glucose_file.csv', mode='w') as glucose_file:
+                        glucose_writer = csv.writer(glucose_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                        
+                        glucose_writer.writerow([self.bloodGlucose, str(self.glucoseNormal)])
+                   
+                def appendFile(self, filename):
+                    with open(filename, 'a+', newline='') as write_obj:
+                        csv_writer=csv.writer(write_obj)
+                        #write_obj.write("\n")
+                        csv_writer.writerow([self.bloodGlucose, str(self.glucoseNormal)])
+                        
+                    
+                
+                def readFile(self, filename):
+                    header_list=['bloodglucose', 'glucoseNormal']
+                    df=pd.read_csv(filename, names=header_list)
+            
+                    
+                    self.bloodGlucose = int(df['bloodglucose'])
+                    self.glucoseNormal = df['glucoseNormal']
+                    
+                    print('\n', "::::testing readFile method::::")
+                    print(df)
+                    print(self.bloodGlucose)
+                    print(self.glucoseNormal)
+                    
+            
+            m = GlucoseMonitor(180)
+            
+            m1 = GlucoseMonitor(113)
+            
+            m3 = GlucoseMonitor(140)
+            
+            m4 = GlucoseMonitor(131)
+            
+            
+            m.checkNormal()
+            
+            m1.checkNormal()
+            
+            m3.checkNormal()
+            
+            m3.writeFile()
+            
+            m1.appendFile("sample_glucose.csv")
+            
+            
+            m4.readFile("glucose_file.csv")
+          </code>
+      </pre>
+      <pre>
+          <code>
+            ###Sonnelyn Valdez Glucose Monitor Code Test
+
+            import unittest
+            
+            class TestGlucoseMonitor(unittest.TestCase):
+                """Tests for the class GlucoseMonitor."""
+                def setUp(self):
+                    self.measure = GlucoseMonitor(180)
+                    measure = GlucoseMonitor(180)
+                    self.assertEqual(measure.bloodGlucose, 180)       
+                    
+                
+                def testSetMeasurement(self):
+                    measure = GlucoseMonitor(180)
+                    self.assertEqual(measure.bloodGlucose, 180)
+                            
+                def testcheckNormal(self):
+                    measure = GlucoseMonitor(180)
+                    measure.checkNormal()
+                    self.measure.checkNormal()
+                    self.assertEqual(measure.glucoseNormal, 'false')
+            
+                    
+            if __name__ == '__main__':
+                unittest.main(argv=['first-arg-is-ignored'], exit=False)
+          </code>
+      </pre>
+  </body>
