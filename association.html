@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    <title> Data Association Analysis Assignment</title>
+
+    <link rel="stylesheet" href="/associationstyle.css" />
+
+  </head>
+
+  <body>
+    <div>
+        <nav>
+          <ul>
+            <li> <a href="index.html"> Home</a></li> 
+          </ul>
+        </nav>   
+    </div>
+
+    <h1> Data Association Analysis Assignment</h1>
+
+    <pre>
+        <code>
+            import pandas as pd
+
+            # read the dataset from https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/DoctorContacts.csv
+medical = open("DoctorContacts.csv", "r")
+print(medical)
+for lx in medical:
+    print(lx)
+
+    # format numbers to be displayed with two decimal positions
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+result = df.round(2)
+print(result)
+
+# View first 5 rows in the Medical Dataset
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+result = df.head(5)
+print("First five rows")
+print(result)
+
+# View last 5 rows in the Medical Dataset
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+result = df.tail(5)
+print("Last five rows")
+print(result)
+
+# add a name for the first column, for example id
+# hint: assign name using the index of the column ix with: medical.columns.values[ix] = 'id'
+medical = open("DoctorContacts.csv", "r")
+df = pd.read_csv('DoctorContacts.csv')
+df.rename(columns={'Unnamed: 0':'id'}, inplace = True)
+df.columns
+
+medical = open("DoctorContacts.csv", "r")
+df = pd.read_csv('DoctorContacts.csv')
+medical.head = df.head(5)
+print(medical.head)
+
+from scipy import stats
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+from scipy import stats
+   
+def medical_stats(var1, var2):
+    var1 = meddat["age"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+    
+    """Calculates the regression line between var1 and var2 and Returns the slope and intercept."""
+
+    # evaluate association between age and number of chronic diseases (ndisease)
+    mstats = medical_stats(meddat.age, meddat.ndisease)
+    mstats
+
+    # evaluate association between number of doctor outpatient visits (mdu) and ndisease
+def medical_stats(var1, var2):
+    var1 = meddat["mdu"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+mstats = medical_stats(meddat.mdu, meddat.ndisease)
+mstats
+
+# evaluate association between education level (educdec) and ndisease
+def medical_stats(var1, var2):
+    var1 = meddat["educdec"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+mstats = medical_stats(meddat.educdec, meddat.ndisease)
+mstats
+
+# evaluate association between participation in incentive program (lpi) and ndisease
+def medical_stats(var1, var2):
+    var1 = meddat["lpi"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+mstats = medical_stats(meddat.lpi, meddat.ndisease)
+mstats
+
+# evaluate association between family income (linc) and ndisease
+def medical_stats(var1, var2):
+    var1 = meddat["linc"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+mstats = medical_stats(meddat.linc, meddat.ndisease)
+mstats
+
+# evaluate association between family size (lfam) and ndisease
+def medical_stats(var1, var2):
+    var1 = meddat["lfam"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+mstats = medical_stats(meddat.lfam, meddat.ndisease)
+mstats
+
+# evaluate association between individual deductible plan (idp) and ndisease
+def medical_stats(var1, var2):
+    var1 = meddat["idp"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+mstats = medical_stats(meddat.idp, meddat.ndisease)
+mstats
+
+# evaluate association between coinsurance rate (lc) and ndisease
+def medical_stats(var1, var2):
+    var1 = meddat["lc"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+mstats = medical_stats(meddat.lc, meddat.ndisease)
+mstats
+
+# evaluate association between deductible expenditures (fmde) and ndisease
+def medical_stats(var1, var2):
+    var1 = meddat["lc"]
+
+    var2 = meddat["ndisease"]
+
+    linear_regression = stats.linregress(var1, var2)
+
+    slope = linear_regression.slope
+
+    intercept = linear_regression.intercept
+    
+    pvalue = linear_regression.pvalue
+    
+    print(slope, intercept, pvalue)
+mstats = medical_stats(meddat.fmde, meddat.ndisease)
+mstats
+
+var1 = meddat["educdec"]
+
+var2 = meddat["ndisease"]
+
+linear_regression = stats.linregress(var1, var2)
+
+slope = linear_regression.slope
+
+intercept = linear_regression.intercept
+    
+pvalue = linear_regression.pvalue
+
+line = slope*15 + intercept
+
+print(line)
+
+import seaborn as sns
+
+def medical_graph(var1, var2, df):
+    var1 = meddat["age"]
+    var2 = meddat["ndisease"]
+    df = meddat
+    sns.set(style="white", color_codes=True)
+    sns.jointplot(x="age", y="ndisease", data=meddat, kind = 'reg',
+                  joint_kws={'line_kws':{'color':'red'}})
+   
+    """Plots the regression line between var1 and var2 and Returns the plot."""
+
+    # plot the association and regression line between age and number of diseases (nisease)
+    def medical_graph(var1, var2, df):
+        var1 = meddat["age"]
+        var2 = meddat["ndisease"]
+        df = meddat
+        sns.set(style="white", color_codes=True)
+        sns.jointplot(x="age", y="ndisease", data=meddat, kind = 'reg',
+                      joint_kws={'line_kws':{'color':'red'}})
+    medical_graph(meddat.age, meddat.ndisease, meddat)
+
+    # plot the association and regression line between education level (educdec) and number of diseases (nisease)
+    def medical_graph(var1, var2, df):
+        var1 = meddat["educdec"]
+        var2 = meddat["ndisease"]
+        df = meddat
+        sns.set(style="white", color_codes=True)
+        sns.jointplot(x="educdec", y="ndisease", data=meddat, kind = 'reg',
+                      joint_kws={'line_kws':{'color':'red'}})
+    medical_graph(meddat.educdec, meddat.ndisease, meddat)
+
+        </code>
+    </pre>
+
+   <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/data%20association%201.JPG?v=1654436549960" alt = "Screenshot 1">
+   <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/data%20association%202.JPG?v=1654436555058" alt = "Screenshot 2">
+   <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/data%20association%203.JPG?v=1654436559403" alt = "Screenshot 3">
+   <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/data%20association%204.JPG?v=1654436562257" alt = "Screenshot 4">
+   <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/data%20association%205.JPG?v=1654436565334" alt = "Screenshot 5">
+   <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/data%20association%206.JPG?v=1654436571896" alt = "Screenshot 6"> 
+
+  </body>

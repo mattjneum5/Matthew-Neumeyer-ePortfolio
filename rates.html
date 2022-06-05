@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    <title> Rate Measurement Assignment</title>
+
+    <link rel="stylesheet" href="/ratesstyle.css" />
+
+  </head>
+
+  <body>
+    <div>
+        <nav>
+            <ul>
+               <li> <a href="index.html"> Home</a></li> 
+            </ul>
+        </nav>   
+    </div>
+
+    <h1>Rate Measurement Assignment</h1>
+
+    <pre>
+        <code>
+            # chickens are the prey
+chickens = [100]
+# foxes are the predator
+foxes = [10]
+
+chicken_birth_rate = 0.5
+chicken_death_rate = 0.015
+fox_birth_rate = 0.015
+fox_death_rate = 0.5
+
+# time step for each cycle
+delta_time = 0.01
+#number of cycles
+cycles = 4500
+
+# simulation of evolution of numner of predators and preys ove time
+for t in range(0, cycles):
+  updated_chickens = chickens[t] + delta_time * (chicken_birth_rate * chickens[t]  - chicken_death_rate * foxes[t] * chickens[t])    
+  updated_foxes = foxes[t] + delta_time * (-fox_death_rate * foxes[t] + fox_birth_rate * foxes[t] * chickens[t])
+  chickens.append(updated_chickens)
+  foxes.append(updated_foxes)
+    
+# graphical representation of the number of predators and preys over time
+import matplotlib.pyplot as plt
+time_points = range(cycles + 1)
+plt.plot(time_points, foxes, label='foxes')  
+plt.plot(time_points, chickens, label='chickens') 
+plt.xlabel('time')
+plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+plt.show()
+
+#function
+
+def simulation(foxes, chickens, fox_birth_rate, chicken_birth_rate, predator_death_rate, prey_death_rate, delta_time, cycles):
+    for t in range(0, cycles):
+     updated_chickens = chickens[t] + delta_time * (chicken_birth_rate * chickens[t]  - chicken_death_rate * foxes[t] * chickens[t])
+     updated_foxes = foxes[t] + delta_time * (-fox_death_rate * foxes[t] + fox_birth_rate * foxes[t] * chickens[t])
+     chickens.append(updated_chickens)
+     foxes.append(updated_foxes)
+    import matplotlib.pyplot as plt
+time_points = range(cycles + 1)
+plt.plot(time_points, foxes, label='foxes')  
+plt.plot(time_points, chickens, label='chickens') 
+plt.xlabel('time')
+plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.) 
+plt.show()
+ 
+simulation(foxes, chickens, 0.015, 0.5, 0.5, 0.015, 0.01, 4500)
+        
+        </code>
+    </pre>
+
+    <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/rates%201.JPG?v=1654436617613" alt = "Screenshot 1">
+    <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/rates%202.JPG?v=1654436620355" alt = "Screenshot 2">
+    <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/rates%203.JPG?v=1654436623816" alt = "Screenshot 3">
+
+
+  </body>

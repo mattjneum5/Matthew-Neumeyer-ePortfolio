@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    <title> Database Assignment</title>
+
+    <link rel="stylesheet" href="/databasestyle.css" />
+
+  </head>
+
+  <body>
+    <div>
+        <nav>
+          <ul>
+            <li> <a href="index.html"> Home</a></li> 
+          </ul>
+        </nav>   
+    </div>
+
+   <h1> Database Assignment</h1>
+
+   <pre>
+       <code>
+        import sqlite3
+
+        import pandas as pd
+
+        connection = sqlite3.connect('hospital.db')
+
+with open('hospital.sql', 'r') as sql_file:
+    connection.executescript(sql_file.read())
+
+connection.close()
+
+connection.open()
+
+pd.read_sql("""SELECT * FROM physician ORDER BY name ASC""", connection)
+
+pd.read_sql("""SELECT * FROM patient WHERE name LIKE 'G%'""", connection)
+
+pd.read_sql("""SELECT * FROM physician WHERE position NOT LIKE '%physician'""", connection)
+
+pd.read_sql("""SELECT * FROM patient WHERE pcp = 'Elliot Reid'""", connection)
+
+       </code>
+   </pre>
+
+  <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/database%201.JPG?v=1654436580648" alt = "Screenshot 1">
+  <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/database%202.JPG?v=1654436584279" alt = "Screenshot 2">
+  <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/database%203.JPG?v=1654436588281" alt = "Screenshot 3">
+  <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/database%204.JPG?v=1654436591841" alt = "Screenshot 4">
+  <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/database%205.JPG?v=1654436595302" alt = "Screenshot 5">  
+   
+  </body>

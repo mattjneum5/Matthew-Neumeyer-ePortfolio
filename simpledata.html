@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    <title> Simple Data Analysis Assignment</title>
+
+    <link rel="stylesheet" href="/simpledatastyle.css" />
+
+  </head>
+
+  <body>
+    <div>
+        <nav>
+          <ul>
+            <li> <a href="index.html"> Home</a></li> 
+          </ul>
+        </nav>   
+    </div>
+
+    <h1> Simple Data Analysis Assignment</h1>
+
+    <pre>
+        <code>
+            import pandas as pd
+
+            # read the dataset from https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/DoctorContacts.csv
+medical = open("DoctorContacts.csv", "r")
+print(medical)
+for lx in medical:
+    print(lx)
+
+    # format numbers to be displayed with two decimal positions
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+result = df.round(2)
+print(result)
+
+# View first 5 rows in the Medical Dataset
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+result = df.head(5)
+print("First five rows")
+print(result)
+
+
+# View last 5 rows in the Medical Dataset
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+result = df.tail(5)
+print("Last five rows")
+print(result)
+
+
+# add a name for the first column, for example id
+# hint: assign name using the index of the column ix with: medical.columns.values[ix] = 'id'
+medical = open("DoctorContacts.csv", "r")
+df = pd.read_csv('DoctorContacts.csv')
+df.rename(columns={'Unnamed: 0':'id'}, inplace = True)
+df.columns
+
+
+medical = open("DoctorContacts.csv", "r")
+df = pd.read_csv('DoctorContacts.csv')
+medical.head = df.head(5)
+print(medical.head)
+
+# provide descriptive statistics of all variables in this dataset
+
+medical = open("DoctorContacts.csv", "r")
+df = pd.read_csv('DoctorContacts.csv')
+print(df.describe())
+print(df.info())
+
+# provide descriptive statistics for the patients in excellent health
+medical = open("DoctorContacts.csv", "r")
+df = pd.read_csv('DoctorContacts.csv')
+excellent_health = df[df['health'].str.contains('excellent')]
+print(excellent_health)
+
+%matplotlib inline
+
+# draw histogram for variable 'educdec'
+import pandas as pd
+import matplotlib.pyplot as plt
+medical = open("DoctorContacts.csv", "r")
+df = pd.read_csv('DoctorContacts.csv')
+df["educdec"].plot(kind = 'hist')
+
+# draw a histogram comparing education level (educdec) by gender
+# hint: use the parameter by='variable name' in hist()
+import pandas as pd
+import matplotlib.pyplot as plt
+medical = open("DoctorContacts.csv", "r")
+df = pd.read_csv('DoctorContacts.csv')
+histogram = df.hist(column='educdec',by='sex')
+
+# access column 'child' of the dataframe in two manners
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+print(df.child)
+
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+df['child']
+
+# select the first row of the dataset
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+df.loc[0]
+
+# slice the dataset to extract the first 10 rows 
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+df.loc[0:9]
+
+# slice the dataset to extract the first 10 rows and only columns 'health' and 'educdec'
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+df.loc[0:9, ['health','educdec']]
+
+# display the health status of patient with id 9
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+df.loc[9, ['health']]
+
+# sort the dataset by increasing value of column 'age'
+# hint: use 'by' argument in sort_value method
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+df.sort_values('age')
+
+# sort the dataset by decreasing value of column 'age'
+import pandas as pd
+df = pd.read_csv('DoctorContacts.csv')
+df.sort_values('age', ascending=False)
+
+        </code>
+
+    </pre>
+
+
+    <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/simple%20data%201.JPG?v=1654436626935" alt = "Screenshot 1">
+    <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/simple%20data%202.JPG?v=1654436630050" alt = "Screenshot 2">
+    <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/simple%20data%203.JPG?v=1654436632979" alt = "Screenshot 3">
+    <img src = "https://cdn.glitch.global/6f93e824-b893-41bf-8033-2a1538159863/simple%20data%204.JPG?v=1654436636078" alt = "Screenshot 4">
+
+  </body>

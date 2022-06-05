@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Buy Your Health Insurance Here!</title>
+		<link href="lab3.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+		<div>
+			<nav>
+			  <ul>
+				<li> <a href="index.html"> Home</a></li> 
+			  </ul>
+			</nav>   
+		  </div>
+
+
+		<h1>Buy Your Way to a Better Healh!</h1>
+
+		<p>
+			Recent changes in health insurance regulations now allous us to offer health insurance at affordable rates. All you need to do to get started is to send us an application fee.
+		</p>
+		
+		<hr />
+		
+		<h2>Give Us Your Money</h2>
+
+		<form action="lab3.cgi" method="post">
+			<dl>
+				<dt>Name</dt>
+				<dd>
+					<input type="text" name="Name" />
+				</dd>
+
+				<dt>City</dt>
+				<dd>
+					<select name="city">
+						<option value="">(Select a section)</option>
+						<option>New York</option>
+						<option>Oswego</option>
+						<option>Buffalo</option>
+						<option>Rochester</option>
+						<option>Albany</option>
+						<option>Schenectady</option>
+						<option>Utica</option>
+						<option>Niagra Falls</option>
+					</select>
+				</dd>
+
+				<dt>Credit Card</dt>
+				<dd>
+					<input type="text" name="cardnumber" /><br />
+					<label><input type="radio" name="cardtype" value="visa" />Visa</label>
+					<label><input type="radio" name="cardtype" value="mastercard"/>MasterCard</label>
+
+				</dd>
+			</dl>
+
+			<div>
+				<input type="submit" value="Purchase health insurance." />
+			</div>
+		</form>
+	</body>
+</html>
