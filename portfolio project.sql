@@ -173,6 +173,76 @@ Join PortfolioPortfolio..CovidVaccinations vac
 	and dea.date = vac.date
 WHERE dea.continent is not null 
 
+Create View CountryDeathPercentage as
+SELECT location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as Death_percentage
+FROM PortfolioPortfolio..CovidDeaths
+WHERE LOCATION like '%States' and continent is not null
+
+
+Create View CountryCasePercentage as
+SELECT location, date, total_cases, population, (total_cases/population)*100 as Case_Percentage
+FROM PortfolioPortfolio..CovidDeaths
+WHERE LOCATION like '%States' and continent is not null
+
+
+Create View CountryTotalInfectionCount as
+SELECT location, population, MAX(total_cases) as HighestInfectionCount, (total_cases/population)*100 as Case_Percentage
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is not null
+GROUP BY location, population, total_cases
+
+
+Create View CountryTotalDeathCount as
+SELECT location,  MAX(cast(total_deaths as int)) as TotalDeathCount
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is not null
+GROUP BY location
+
+
+Create View ContinentTotalDeathCount as
+SELECT continent,  MAX(cast(total_deaths as int)) as TotalDeathCount
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is not null
+GROUP BY continent
+
+
+Create View ContinentTotalDeathCountUsingLocation as
+SELECT location,  MAX(cast(total_deaths as int)) as TotalDeathCount
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is null
+GROUP BY location
+
+
+Create View ContinentDeathPercentage as
+SELECT continent, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as Death_percentage
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is not null
+
+
+Create View ContinentCasePercentage as
+SELECT continent, date, total_cases, population, (total_cases/population)*100 as Case_Percentage
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is not null
+
+
+Create View ContinentCasePercentageInPopulation as
+SELECT continent, population, MAX(total_cases) as HighestInfectionCount, (total_cases/population)*100 as Case_Percentage
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is not null
+GROUP BY continent, population, total_cases
+
+
+Create View ContinentCasesVsDeathsWithDate as
+SELECT date, SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(new_cases)*100 as Death_percentage
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is not null
+GROUP BY date
+
+
+Create View ContinentCasesVsDeaths as
+SELECT SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(new_cases)*100 as Death_percentage
+FROM PortfolioPortfolio..CovidDeaths
+WHERE continent is not null
 
 
 
